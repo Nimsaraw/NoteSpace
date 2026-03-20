@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 20 20% 14%;
+
+    --card: 40 30% 96%;
+    --card-foreground: 20 20% 14%;
+
+    --popover: 40 33% 98%;
+    --popover-foreground: 20 20% 14%;
+
+    --primary: 24 80% 50%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 40 20% 90%;
+    --secondary-foreground: 20 20% 24%;
+
+    --muted: 40 15% 92%;
+    --muted-foreground: 20 10% 50%;
+
+    --accent: 170 50% 40%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 85%;
+    --ring: 24 80% 50%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 40 25% 95%;
+    --sidebar-foreground: 20 20% 14%;
+    --sidebar-primary: 24 80% 50%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 40 20% 90%;
+    --sidebar-accent-foreground: 20 20% 24%;
+    --sidebar-border: 30 15% 88%;
+    --sidebar-ring: 24 80% 50%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+  }
+
+  .dark {
+    --background: 20 18% 10%;
+    --foreground: 40 20% 92%;
+
+    --card: 20 16% 14%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 20 16% 14%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 24 80% 55%;
+    --primary-foreground: 20 18% 10%;
+
+    --secondary: 20 12% 20%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 20 12% 18%;
+    --muted-foreground: 40 10% 55%;
+
+    --accent: 170 50% 45%;
+    --accent-foreground: 20 18% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 92%;
+
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 24 80% 55%;
+
+    --sidebar-background: 20 18% 8%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 24 80% 55%;
+    --sidebar-primary-foreground: 20 18% 10%;
+    --sidebar-accent: 20 12% 18%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 20 12% 22%;
+    --sidebar-ring: 24 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Tiptap editor styles */
+.tiptap {
+  outline: none;
+  min-height: 400px;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: hsl(var(--foreground));
+}
+
+.tiptap p {
+  margin-bottom: 0.75em;
+}
+
+.tiptap h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.tiptap h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.tiptap h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.tiptap ul, .tiptap ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.tiptap ul {
+  list-style-type: disc;
+}
+
+.tiptap ol {
+  list-style-type: decimal;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid hsl(var(--primary));
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+
+.tiptap code {
+  background: hsl(var(--muted));
+  padding: 0.15em 0.4em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+}
+
+.tiptap pre {
+  background: hsl(var(--muted));
+  padding: 1em;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin-bottom: 0.75em;
+}
+
+.tiptap pre code {
+  background: none;
+  padding: 0;
+}
+
+.tiptap a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+}
+
+.tiptap mark {
+  background-color: hsl(45 100% 70%);
+  border-radius: 0.15em;
+  padding: 0.05em 0.15em;
+}
+
+.tiptap .is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: hsl(var(--muted-foreground));
+  pointer-events: none;
+  height: 0;
+}
+
+.tiptap hr {
+  border-color: hsl(var(--border));
+  margin: 1.5em 0;
+}
